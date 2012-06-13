@@ -8,6 +8,7 @@ set hid
 " set t_vb=
 set mouse=a
 set lz
+set winaltkeys=no
 
 set hlsearch
 set incsearch
@@ -69,41 +70,55 @@ autocmd BufEnter * silent! lcd %:p:h
 
 " KeyBinding
 " Edit
-map <C-D> <Del>
-map! <C-D> <Del>
-map <C-F> <Right>
-map <C-B> <Left>
-map <C-N> <Down>
-map <C-P> <Up>
-map <C-E> <End>
-map <C-Q> <Home>
-map! <C-F> <Right>
-map! <C-B> <Left>
-map! <C-N> <Down>
-map! <C-P> <Up>
-map! <C-E> <End>
-map! <C-Q> <Home>
-map ¼ gg
-imap ¼ <C-O>gg
-map ¾ G$
-imap ¾ <C-O>G<C-O>$
+noremap <C-D> <Del>
+noremap! <C-D> <Del>
+noremap <C-F> <Right>
+noremap <C-B> <Left>
+noremap <C-N> <Down>
+noremap <C-P> <Up>
+noremap <C-E> <End>
+noremap <C-Q> <Home>
+noremap! <C-F> <Right>
+noremap! <C-B> <Left>
+noremap! <C-N> <Down>
+noremap! <C-P> <Up>
+noremap! <C-E> <End>
+noremap! <C-Q> <Home>
+noremap ¼ gg
+inoremap ¼ <C-O>gg
+noremap ¾ G$
+inoremap ¾ <C-O>G<C-O>$
+noremap <C-Z> u
+inoremap <C-Z> <C-O>u
+noremap ú <C-R>
+inoremap ú <C-O><C-R>
 
 " File
-map <C-X><C-S> :w<CR>
-imap <C-X><C-S> <C-O>:w<CR>
-map <C-X><C-W> :sav<Space>
-imap <C-X><C-W> <C-O>:sav<Space>
-map <C-X><C-F> :e<Space>
-imap <C-X><C-F> <C-O>:e<Space>
-map <C-X><Right> :e<Space>
-imap <C-X><Right> <C-O>:e<Space>
-map ø :
-imap ø <C-O>:
+noremap <C-X><C-S> :w<CR>
+inoremap <C-X><C-S> <C-O>:w<CR>
+noremap <C-X><C-W> :sav<Space>
+inoremap <C-X><C-W> <C-O>:sav<Space>
+noremap <C-X><C-F> :e<Space>
+inoremap <C-X><C-F> <C-O>:e<Space>
+noremap <C-X><Right> :e<Space>
+inoremap <C-X><Right> <C-O>:e<Space>q
+noremap ø :
+inoremap ø <C-O>:
 
 " Search, Probably Need Improvement
-map <C-S> /
-imap <C-S> <C-O>/
+noremap <C-S> /
+inoremap <C-S> <C-O>/
+noremap <C-R> ?
+inoremap <C-R> <C-O>?
 
 " Select
-map <C-A> ggvG$
-imap <C-A> <ESC>ggvG$
+noremap <C-A> ggvG$<C-G>
+inoremap <C-A> <ESC>ggvG$<C-G>
+noremap <C-Space> <ESC>v<C-G>
+inoremap <C-Space> <C-O>v<C-G>
+xnoremap <C-W> "+x
+xnoremap ÷ "+y
+snoremap <C-W> <C-O>"+x
+snoremap ÷ <C-O>"+y
+noremap <C-Y> "+gP
+inoremap <C-Y> <C-O>]p
