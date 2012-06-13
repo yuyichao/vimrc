@@ -1,6 +1,7 @@
 " Basic
 set nocompatible
 set encoding=utf-8
+set guioptions=aegimrLt
 
 set ruler
 set hid
@@ -56,10 +57,11 @@ function SetWhiteSpaceMatch()
 endfunction
 
 autocmd ColorScheme * call SetWhiteSpaceHighLight()
-autocmd BufEnter * call SetWhiteSpaceMatch()
+autocmd BufEnter,WinEnter,TabEnter * call SetWhiteSpaceMatch()
 
 set list
 colo default
+highlight Normal guibg=#FFFFDD
 
 " Font Setting
 set guifont=文泉驿等宽正黑\ Bold\ 13
@@ -92,6 +94,12 @@ noremap <C-Z> u
 inoremap <C-Z> <C-O>u
 noremap ú <C-R>
 inoremap ú <C-O><C-R>
+noremap <C-I> zz
+inoremap <C-I> <C-O>zz
+noremap ö <C-U>
+inoremap ö <C-O><C-U>
+noremap <C-V> <C-D>
+inoremap <C-V> <C-O><C-D>
 
 " File
 noremap <C-X><C-S> :w<CR>
@@ -101,7 +109,7 @@ inoremap <C-X><C-W> <C-O>:sav<Space>
 noremap <C-X><C-F> :e<Space>
 inoremap <C-X><C-F> <C-O>:e<Space>
 noremap <C-X><Right> :e<Space>
-inoremap <C-X><Right> <C-O>:e<Space>q
+inoremap <C-X><Right> <C-O>:e<Space>
 noremap ø :
 inoremap ø <C-O>:
 
@@ -122,3 +130,29 @@ snoremap <C-W> <C-O>"+x
 snoremap ÷ <C-O>"+y
 noremap <C-Y> "+gP
 inoremap <C-Y> <C-O>]p
+
+" Window
+inoremap <C-W>n <C-O><C-W>n
+inoremap <C-W>s <C-O><C-W>s
+inoremap <C-W>v <C-O><C-W>v
+inoremap <C-W>c <C-O><C-W>c
+inoremap <C-W>o <C-O><C-W>o
+
+noremap <C-S-H> <C-W>H
+inoremap <C-S-H> <C-O><C-W>H
+noremap <C-S-J> <C-W>J
+inoremap <C-S-J> <C-O><C-W>J
+noremap <C-S-K> <C-W>K
+inoremap <C-S-K> <C-O><C-W>K
+noremap <C-S-L> <C-W>L
+inoremap <C-S-L> <C-O><C-W>L
+
+"noremap <C-H> <C-W>H
+"inoremap <C-H> <C-O><C-W>H
+"noremap <C-J> <C-W>J
+"inoremap <C-J> <C-O><C-W>J
+"noremap <C-K> <C-W>K
+"inoremap <C-K> <C-O><C-W>K
+"noremap <C-L> <C-W>L
+"inoremap <C-L> <C-O><C-W>L
+
