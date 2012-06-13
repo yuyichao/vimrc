@@ -4,6 +4,10 @@ set encoding=utf-8
 
 set ruler
 set hid
+" set vb
+" set t_vb=
+set mouse=a
+set lz
 
 set hlsearch
 set incsearch
@@ -47,6 +51,7 @@ function SetWhiteSpaceMatch()
     call matchadd("_spaces", ' \+\(\S\)\@=', 100)
     call matchadd("_blankend", '\s\+$', 100)
     call matchadd("_newline", '\n', 100)
+    call matchadd("Underlined", '\%>' . 79 . 'v.\+')
 endfunction
 
 autocmd ColorScheme * call SetWhiteSpaceHighLight()
@@ -63,13 +68,9 @@ cd
 autocmd BufEnter * silent! lcd %:p:h
 
 " KeyBinding
+" Edit
 map <C-D> <Del>
 map! <C-D> <Del>
-map <C-X><C-S> :w<CR>
-imap <C-X><C-S> <C-O>:w<CR>
-map <C-X><C-W> :sav<Space>
-imap <C-X><C-W> <C-O>:sav<Space>
-
 map <C-F> <Right>
 map <C-B> <Left>
 map <C-N> <Down>
@@ -82,18 +83,27 @@ map! <C-N> <Down>
 map! <C-P> <Up>
 map! <C-E> <End>
 map! <C-Q> <Home>
+map ¼ gg
+imap ¼ <C-O>gg
+map ¾ G$
+imap ¾ <C-O>G<C-O>$
 
+" File
+map <C-X><C-S> :w<CR>
+imap <C-X><C-S> <C-O>:w<CR>
+map <C-X><C-W> :sav<Space>
+imap <C-X><C-W> <C-O>:sav<Space>
 map <C-X><C-F> :e<Space>
 imap <C-X><C-F> <C-O>:e<Space>
 map <C-X><Right> :e<Space>
 imap <C-X><Right> <C-O>:e<Space>
 map ø :
 imap ø <C-O>:
-map ¼ gg
-imap ¼ <C-O>gg
-map ¾ G$
-imap ¾ <C-O>G<C-O>$
 
-" Probably Need Improvement
+" Search, Probably Need Improvement
 map <C-S> /
 imap <C-S> <C-O>/
+
+" Select
+map <C-A> ggVG
+imap <C-A> <ESC>ggVG
