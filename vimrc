@@ -105,5 +105,5 @@ map <C-S> /
 imap <C-S> <C-O>/
 
 " Select
-map <C-A> ggVG
-imap <C-A> <ESC>ggVG
+map <C-A> ggvG$
+imap <C-A> <ESC>ggvG$
