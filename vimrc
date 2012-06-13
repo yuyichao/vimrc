@@ -1,3 +1,11 @@
+" Basic
+set encoding=utf-8
+set ruler
+set ru
+set hlsearch
+set incsearch
+set history=10000
+
 " Show Line Number
 set nu
 
@@ -31,4 +39,3 @@ set guifont=文泉驿等宽正黑\ Bold\ 13
 " Default Directory and Buffer Directory
 cd
 autocmd BufEnter * silent! lcd %:p:h
-
