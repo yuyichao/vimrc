@@ -21,14 +21,17 @@ syntax on
 autocmd ColorScheme * highlight _begin_tabs guibg=#FFFF48
 autocmd Syntax * syn match _begin_tabs /^\t\+/
 
+autocmd ColorScheme * highlight _tab_error guibg=#FF212A
+autocmd Syntax * syn match _tab_error / \+\t/
+
 autocmd ColorScheme * highlight _spaces guibg=#D9F2E1
 autocmd Syntax * match _spaces / \+\(\S\)\@=/
 
 autocmd ColorScheme * highlight _blankend guibg=#FF212A
 autocmd Syntax * syn match _blankend /\s\+$/
 
-autocmd ColorScheme * highlight _tab_error guibg=#FF212A
-autocmd Syntax * syn match _tab_error / \+\t/
+"autocmd ColorScheme * highlight _newline guibg=#E7FEFF guifg=#CACACA
+"autocmd Syntax * match _newline /\n/
 
 set list
 colo default
