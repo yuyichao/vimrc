@@ -1,33 +1,9 @@
-" Basic
-set nocompatible
-set encoding=utf-8
-set guioptions=aegimrLt
-set ruler
-set hid
-
-" set vb
-" set t_vb=
-set mouse=a
-set lz
-set winaltkeys=no
-
-set hlsearch
-set incsearch
-set history=10000
-set cursorline
-
-set ai
-set ci
-set modeline
-set wildmode=longest,list
+source ~/.vim/script/uicommon.vim
 
 set clipboard+=unnamed
 
 filetype plugin indent on
 autocmd FileType python setlocal et sta sw=4 sts=4 foldmethod=indent
-
-" Show Line Number
-set nu
 
 " Tab Width
 set tabstop=4
@@ -39,11 +15,7 @@ syntax on
 
 source ~/.vim/script/whitespace.vim
 
-set list
 highlight Normal guibg=#FFFFDD
-
-" Font Setting
-set guifont=文泉驿等宽正黑\ Bold\ 13
 
 " Default Directory and Buffer Directory
 cd
@@ -66,20 +38,7 @@ function CMapEmpty(res)
     return ""
 endfunction
 
-function CmdLineKill(toend)
-    let l:cur_cmd_line = getcmdline()
-    let l:cur_cmd_pos = getcmdpos()
-    let l:cut_buff = ""
-    if (a:toend)
-        let l:cut_buff = strpart(l:cur_cmd_line, l:cur_cmd_pos - 1)
-        let l:cur_cmd_line = strpart(l:cur_cmd_line, 0, l:cur_cmd_pos - 1)
-    else
-        let l:cur_buff = strpart(l:cur_cmd_line, 0, l:cur_cmd_pos - 1)
-        let l:cur_cmd_line = strpart(l:cur_cmd_line, l:cur_cmd_pos - 1)
-        call setcmdpos(1)
-    endif
-    return l:cur_cmd_line
-endfunction
+source ~/.vim/script/clip.vim
 
 " KeyBinding
 " Edit
@@ -124,29 +83,6 @@ inoremap <C-X><Right> <C-O>:e<Space>
 noremap ø :
 inoremap ø <C-O>:
 
-" Search, Probably Need Improvement
-noremap <C-S> /
-inoremap <C-S> <C-O>/
-noremap <C-R> ?
-inoremap <C-R> <C-O>?
-
-" Select
-noremap <C-A> ggvG$<C-G>
-inoremap <C-A> <ESC>ggvG$<C-G>
-noremap <C-Space> <ESC>v<C-G>
-inoremap <C-Space> <C-O>v<C-G>
-xnoremap <C-W> "+x
-xnoremap ÷ "+y
-snoremap <C-W> <C-O>"+x
-snoremap ÷ <C-O>"+y
-noremap <C-Y> "+gP
-inoremap <C-Y> <C-O>]p
-noremap <C-G> <ESC>:call C_G_Reset()<CR>
-inoremap <C-G> <C-O>:call C_G_Reset()<CR>
-cnoremap <C-G> <C-\>eC_G_Reset()<CR>
-cnoremap <C-K> <C-\>eCmdLineKill(1)<CR>
-cnoremap <C-J> <C-\>eCmdLineKill(0)<CR>
-
 " Window
 inoremap <C-W>n <C-O><C-W>n
 inoremap <C-W>s <C-O><C-W>s
@@ -178,4 +114,3 @@ noremap ë <C-W>k
 inoremap ë <C-O><C-W>k
 noremap ì <C-W>l
 inoremap ì <C-O><C-W>l
-
