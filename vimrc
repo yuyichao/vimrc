@@ -2,9 +2,9 @@
 set nocompatible
 set encoding=utf-8
 set guioptions=aegimrLt
-
 set ruler
 set hid
+
 " set vb
 " set t_vb=
 set mouse=a
@@ -70,6 +70,10 @@ set guifont=文泉驿等宽正黑\ Bold\ 13
 cd
 autocmd BufEnter * silent! lcd %:p:h
 
+function C_G_Reset()
+    let @/ = ""
+endfunction
+
 " KeyBinding
 " Edit
 noremap <C-D> <Del>
@@ -94,8 +98,8 @@ noremap <C-Z> u
 inoremap <C-Z> <C-O>u
 noremap ú <C-R>
 inoremap ú <C-O><C-R>
-noremap <C-I> zz
-inoremap <C-I> <C-O>zz
+noremap <C-L> zz
+inoremap <C-L> <C-O>zz
 noremap ö <C-U>
 inoremap ö <C-O><C-U>
 noremap <C-V> <C-D>
@@ -130,6 +134,8 @@ snoremap <C-W> <C-O>"+x
 snoremap ÷ <C-O>"+y
 noremap <C-Y> "+gP
 inoremap <C-Y> <C-O>]p
+noremap <C-G> <ESC>:call C_G_Reset()<CR>
+inoremap <C-G> <C-O>:call C_G_Reset()<CR>
 
 " Window
 inoremap <C-W>n <C-O><C-W>n
@@ -138,21 +144,28 @@ inoremap <C-W>v <C-O><C-W>v
 inoremap <C-W>c <C-O><C-W>c
 inoremap <C-W>o <C-O><C-W>o
 
-noremap <C-S-H> <C-W>H
-inoremap <C-S-H> <C-O><C-W>H
-noremap <C-S-J> <C-W>J
-inoremap <C-S-J> <C-O><C-W>J
-noremap <C-S-K> <C-W>K
-inoremap <C-S-K> <C-O><C-W>K
-noremap <C-S-L> <C-W>L
-inoremap <C-S-L> <C-O><C-W>L
+noremap È <C-W>H
+inoremap È <C-O><C-W>H
+noremap Ê <C-W>J
+inoremap Ê <C-O><C-W>J
+noremap Ë <C-W>K
+inoremap Ë <C-O><C-W>K
+noremap Ì <C-W>L
+inoremap Ì <C-O><C-W>L
 
-"noremap <C-H> <C-W>H
-"inoremap <C-H> <C-O><C-W>H
-"noremap <C-J> <C-W>J
-"inoremap <C-J> <C-O><C-W>J
-"noremap <C-K> <C-W>K
-"inoremap <C-K> <C-O><C-W>K
-"noremap <C-L> <C-W>L
-"inoremap <C-L> <C-O><C-W>L
+noremap <C-X><C-B> :buffers
+noremap <C-X><Left> :buffers
+inoremap <C-X><C-B> <C-O>:buffers
+inoremap <C-X><Left> <C-O>:buffers
+noremap <C-X>b :b<Space>
+inoremap <C-X>b <C-O>:b<Space>
+
+noremap è <C-W>h
+inoremap è <C-O><C-W>h
+noremap ê <C-W>j
+inoremap ê <C-O><C-W>j
+noremap ë <C-W>k
+inoremap ë <C-O><C-W>k
+noremap ì <C-W>l
+inoremap ì <C-O><C-W>l
 
