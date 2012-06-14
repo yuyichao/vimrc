@@ -67,14 +67,18 @@ function CMapEmpty(res)
 endfunction
 
 function CmdLineKill(toend)
-    let cur_cmd_line = getcmdline()
-    let cur_cmd_pos = getcmdpos()
+    let l:cur_cmd_line = getcmdline()
+    let l:cur_cmd_pos = getcmdpos()
+    let l:cut_buff = ""
     if (a:toend)
-        let cur_cmd_line = strpart(cur_cmd_line, 0, cur_cmd_pos - 1)
+        let l:cut_buff = strpart(l:cur_cmd_line, l:cur_cmd_pos - 1)
+        let l:cur_cmd_line = strpart(l:cur_cmd_line, 0, l:cur_cmd_pos - 1)
     else
-        let cur_cmd_line = strpart(cur_cmd_line, cur_cmd_pos - 1)
+        let l:cur_buff = strpart(l:cur_cmd_line, 0, l:cur_cmd_pos - 1)
+        let l:cur_cmd_line = strpart(l:cur_cmd_line, l:cur_cmd_pos - 1)
+        call setcmdpos(1)
     endif
-    return cur_cmd_line
+    return l:cur_cmd_line
 endfunction
 
 " KeyBinding
