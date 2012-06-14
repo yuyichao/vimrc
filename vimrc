@@ -72,6 +72,28 @@ autocmd BufEnter * silent! lcd %:p:h
 
 function C_G_Reset()
     let @/ = ""
+    if (mode() == 'c')
+        let cur_cmd_type = getcmdtype()
+        if (cur_cmd_type == '/' || cur_cmd_type == '?')
+            return ""
+        endif
+        return getcmdline()
+    endif
+endfunction
+
+function CMapHelper(res)
+    return getcmdline()
+endfunction
+
+function CmdLineKill(toend)
+    let cur_cmd_line = getcmdline()
+    let cur_cmd_pos = getcmdpos()
+    if (a:toend)
+        let cur_cmd_line = strpart(cur_cmd_line, 0, cur_cmd_pos - 1)
+    else
+        let cur_cmd_line = strpart(cur_cmd_line, cur_cmd_pos - 1)
+    endif
+    return cur_cmd_line
 endfunction
 
 " KeyBinding
@@ -136,6 +158,9 @@ noremap <C-Y> "+gP
 inoremap <C-Y> <C-O>]p
 noremap <C-G> <ESC>:call C_G_Reset()<CR>
 inoremap <C-G> <C-O>:call C_G_Reset()<CR>
+cnoremap <C-G> <C-\>eC_G_Reset()<CR>
+cnoremap <C-K> <C-\>eCmdLineKill(1)<CR>
+cnoremap <C-J> <C-\>eCmdLineKill(0)<CR>
 
 " Window
 inoremap <C-W>n <C-O><C-W>n
