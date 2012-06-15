@@ -1,3 +1,57 @@
+let s:kill_ring = []
+let s:presist = 0
+
+function s:set_presist(tryadd)
+    if (a:tryadd > 0)
+        let s:presist = 1
+    elseif (a:tryadd < 0)
+        let s:presist = -1
+    else
+        let s:presist = 0
+    endif
+endfunction
+
+function s:update_clipboard()
+    if (len(s:kill_ring))
+        let @+ = s:kill_ring[0]
+    else
+        let @+ = ""
+    endif
+endfunction
+
+autocmd CursorMoved * silent! call s:set_presist(0)
+autocmd CursorMovedI * silent! call s:set_presist(0)
+autocmd BufEnter * silent! call s:set_presist(0)
+autocmd BufWinEnter * silent! call s:set_presist(0)
+autocmd WinEnter * silent! call s:set_presist(0)
+autocmd CmdwinEnter * silent! call s:set_presist(0)
+autocmd TabEnter * silent! call s:set_presist(0)
+
+function s:push_kill_ring(content, tryadd)
+    if (s:presist || s:presist != a:tryadd)
+        let l:presist = 0
+        s:set_presist(a:tryadd)
+    else
+        let l:presist = s:presist
+    endif
+    if (l:presist)
+        if (len(s:kill_ring) > 0)
+            let l:old_buff = s:kill_ring[0]
+        else
+            let l:old_buff = ""
+            let s:kill_ring = [""]
+        endif
+    endif
+    if (l:presist > 0)
+        let s:kill_ring[0] .= content
+    elseif (l:presist < 0)
+        let s:kill_ring[0] = content . s:kill_ring[0]
+    else
+        let s:kill_ring = [content] + s:kill_ring
+    endif
+    call s:update_clipboard()
+endfunction
+
 function CmdLineKill(toend)
     let l:cur_cmd_line = getcmdline()
     let l:cur_cmd_pos = getcmdpos()
@@ -10,6 +64,7 @@ function CmdLineKill(toend)
         let l:cur_cmd_line = strpart(l:cur_cmd_line, l:cur_cmd_pos - 1)
         call setcmdpos(1)
     endif
+    s:push_kill_ring(l:cur_buff, 0)
     return l:cur_cmd_line
 endfunction
 
