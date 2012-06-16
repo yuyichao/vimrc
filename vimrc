@@ -1,4 +1,5 @@
 source ~/.vim/script/uicommon.vim
+source ~/.vim/script/hold.vim
 source ~/.vim/script/insertmode.vim
 
 set clipboard+=unnamed

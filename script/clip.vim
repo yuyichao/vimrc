@@ -1,6 +1,10 @@
 let s:kill_ring = [@+]
 let s:presist = 0
 
+function s:clip_board_clear()
+    call s:set_presist(0)
+endfunction
+
 function s:set_presist(tryadd)
     if (a:tryadd > 0)
         let s:presist = 1
@@ -27,13 +31,7 @@ function s:get_ring_first()
     endif
 endfunction
 
-autocmd CursorMoved * silent! call s:set_presist(0)
-autocmd CursorMovedI * silent! call s:set_presist(0)
-autocmd BufEnter * silent! call s:set_presist(0)
-autocmd BufWinEnter * silent! call s:set_presist(0)
-autocmd WinEnter * silent! call s:set_presist(0)
-autocmd CmdwinEnter * silent! call s:set_presist(0)
-autocmd TabEnter * silent! call s:set_presist(0)
+call g:hold_register('clip_board', function('s:clip_board_clear'), 'cwm')
 
 function s:push_kill_ring(content, tryadd)
     if (s:presist || s:presist != a:tryadd)
