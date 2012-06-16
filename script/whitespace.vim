@@ -22,3 +22,4 @@ autocmd BufEnter,WinEnter,TabEnter * call SetWhiteSpaceMatch()
 
 call SetWhiteSpaceHighLight()
 set list
+set lcs=tab:\ \ ,eol:$

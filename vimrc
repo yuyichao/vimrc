@@ -1,4 +1,5 @@
 source ~/.vim/script/uicommon.vim
+source ~/.vim/script/insertmode.vim
 
 set clipboard+=unnamed
 
@@ -39,38 +40,9 @@ function CMapEmpty(res)
 endfunction
 
 source ~/.vim/script/clip.vim
+source ~/.vim/script/search.vim
 
 " KeyBinding
-" Edit
-noremap <C-D> <Del>
-noremap! <C-D> <Del>
-noremap <C-F> <Right>
-noremap <C-B> <Left>
-noremap <C-N> <Down>
-noremap <C-P> <Up>
-noremap <C-E> <End>
-noremap <C-Q> <Home>
-noremap! <C-F> <Right>
-noremap! <C-B> <Left>
-noremap! <C-N> <Down>
-noremap! <C-P> <Up>
-noremap! <C-E> <End>
-noremap! <C-Q> <Home>
-noremap ¼ gg
-inoremap ¼ <C-O>gg
-noremap ¾ G$
-inoremap ¾ <C-O>G<C-O>$
-noremap <C-Z> u
-inoremap <C-Z> <C-O>u
-noremap ú <C-R>
-inoremap ú <C-O><C-R>
-noremap <C-L> zz
-inoremap <C-L> <C-O>zz
-noremap ö <C-U>
-inoremap ö <C-O><C-U>
-noremap <C-V> <C-D>
-inoremap <C-V> <C-O><C-D>
-
 " File
 noremap <C-X><C-S> :w<CR>
 inoremap <C-X><C-S> <C-O>:w<CR>

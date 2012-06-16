@@ -1,4 +1,4 @@
-let s:kill_ring = []
+let s:kill_ring = [@+]
 let s:presist = 0
 
 function s:set_presist(tryadd)
@@ -16,6 +16,14 @@ function s:update_clipboard()
         let @+ = s:kill_ring[0]
     else
         let @+ = ""
+    endif
+endfunction
+
+function s:get_ring_first()
+    if (len(s:kill_ring) > 0)
+        return s:kill_ring[0]
+    else
+        return ""
     endif
 endfunction
 
@@ -64,7 +72,7 @@ function CmdLineKill(toend)
         let l:cur_cmd_line = strpart(l:cur_cmd_line, l:cur_cmd_pos - 1)
         call setcmdpos(1)
     endif
-    s:push_kill_ring(l:cur_buff, 0)
+    call s:push_kill_ring(l:cur_buff, 0)
     return l:cur_cmd_line
 endfunction
 

@@ -2,6 +2,10 @@
 set nocompatible
 set encoding=utf-8
 set guioptions=aegimrLt
+
+" Font Setting
+set guifont=文泉驿等宽正黑\ Bold\ 13
+
 set ruler
 set hidden
 set number
@@ -20,6 +24,3 @@ set ai
 set ci
 set modeline
 set wildmode=longest,list
-
-" Font Setting
-set guifont=文泉驿等宽正黑\ Bold\ 13
