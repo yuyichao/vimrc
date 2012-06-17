@@ -21,3 +21,5 @@
 9. Better Highlight (gtk-doc? Doxygen?)
 10. Auto-Completion
 11. Folding
+12. Pause when search reaches end
+13. Smart search
