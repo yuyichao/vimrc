@@ -5,12 +5,12 @@ source ~/.vim/script/insertmode.vim
 set clipboard+=unnamed
 
 filetype plugin indent on
-autocmd FileType python setlocal et sta sw=4 sts=4 foldmethod=indent
 
 " Tab Width
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set nosmartindent
 
 " Highlight
 syntax on
