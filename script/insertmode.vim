@@ -1,6 +1,6 @@
 set im
 
-function I_hjkl(key)
+function I_redirect(key)
     if (&modifiable && !&readonly)
         return a:key
     endif
@@ -13,6 +13,10 @@ function I_hjkl(key)
         let l:ret = "\<Up>"
     elseif (a:key == 'l')
         let l:ret = "\<Right>"
+    elseif (a:key == '/')
+        let l:ret = "\<C-O>/"
+    elseif (a:key == '?')
+        let l:ret = "\<C-O>?"
     endif
     return l:ret
 endfunction
@@ -46,7 +50,11 @@ noremap ö <C-U>
 inoremap ö <C-O><C-U>
 noremap <C-V> <C-D>
 inoremap <C-V> <C-O><C-D>
-inoremap <expr> h I_hjkl("h")
-inoremap <expr> j I_hjkl("j")
-inoremap <expr> k I_hjkl("k")
-inoremap <expr> l I_hjkl("l")
+inoremap <expr> h I_redirect("h")
+inoremap <expr> j I_redirect("j")
+inoremap <expr> k I_redirect("k")
+inoremap <expr> l I_redirect("l")
+inoremap <expr> / I_redirect('/')
+inoremap <expr> ? I_redirect('?')
+" TODO
+inoremap <expr> <TAB> "\<C-O>=="

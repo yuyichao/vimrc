@@ -4,7 +4,7 @@ set encoding=utf-8
 set guioptions=aegimrLt
 
 " Font Setting
-set guifont=文泉驿等宽正黑\ Bold\ 13
+set guifont=文泉驿等宽正黑\ Bold\ 14
 
 set ruler
 set hidden

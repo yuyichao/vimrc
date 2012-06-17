@@ -15,33 +15,15 @@ set expandtab
 " Highlight
 syntax on
 
-source ~/.vim/script/whitespace.vim
-
-highlight Normal guibg=#FFFFDD
-
 " Default Directory and Buffer Directory
 cd
 autocmd BufEnter * silent! lcd %:p:h
 
-function C_G_Reset()
-    let @/ = ""
-    if (mode() == 'c')
-        " Quit cmd mode
-        return ""
-    endif
-    " Quit wait mode
-endfunction
-
-function CMapFull(res)
-    return getcmdline()
-endfunction
-
-function CMapEmpty(res)
-    return ""
-endfunction
-
 source ~/.vim/script/clip.vim
 source ~/.vim/script/search.vim
+source ~/.vim/script/whitespace.vim
+
+highlight Normal guibg=#FFFFDD
 
 " KeyBinding
 " File
