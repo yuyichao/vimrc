@@ -1,20 +1,10 @@
-let s:kill_ring = [@+]
+let s:kill_ring = []
 let s:presist = 0
 
-function s:c_g_reset()
-    let @/ = ""
-    if (mode() == 'c')
-        " Quit cmd mode
-        return ""
-    endif
-    " Quit wait mode
-endfunction
-
-call g:hold_register('clip-c-g', function('s:c_g_reset'), 'g')
-
-function s:clip_board_clear()
+function g:Clip_board_clear()
     call s:set_presist(0)
 endfunction
+set selection=exclusive
 
 function s:set_presist(tryadd)
     if (a:tryadd > 0)
@@ -42,7 +32,7 @@ function s:get_ring_first()
     endif
 endfunction
 
-call g:hold_register('clip_board', function('s:clip_board_clear'), 'cwmg')
+call g:hold_register('clip_board', 'g:Clip_board_clear', 'cwmg')
 
 function s:push_kill_ring(content, tryadd)
     if (s:presist || s:presist != a:tryadd)

@@ -1,4 +1,6 @@
 set im
+set whichwrap=b,s,<,>,h,l,[,],~
+set backspace=indent,eol,start
 
 function I_redirect(key)
     if (&modifiable && !&readonly)

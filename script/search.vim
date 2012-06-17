@@ -8,6 +8,12 @@ function g:set_search_continue(conti)
     endif
 endfunction
 
+function g:C_g_reset()
+    let @/ = ""
+endfunction
+
+call g:hold_register('clear-search', function("g:C_g_reset"), 'g')
+
 function g:break_search()
     call g:set_search_continue(0)
 endfunction
@@ -15,17 +21,17 @@ endfunction
 call g:hold_register('search', function('g:break_search'), 'wmg')
 
 function Search_Map(forward)
-    let l:key = forward ? '/' : '?'
+    let l:key = a:forward ? '/' : '?'
     let l:mode = mode()
     if (l:mode == 'n' || l:mode == 'v' ||
-        l:mode == 'V' || l:mode == "\<C-V>")
+                \ l:mode == 'V' || l:mode == "\<C-V>")
         if (s:continue_search)
             return l:key . l:key . "\<CR>"
         endif
         call g:set_search_continue(1)
         return l:key
     elseif (l:mode == 'i' || l:mode == 's' ||
-        l:mode == 'S' || l:mode == "\<C-S>")
+                \ l:mode == 'S' || l:mode == "\<C-S>")
         if (s:continue_search)
             return "\<C-O>" . l:key . l:key . "\<CR>"
         endif
