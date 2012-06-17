@@ -30,7 +30,7 @@ function g:Get_Holds()
     return s:holds
 endfunction
 
-function s:hold_cb(cond)
+function <SID>hold_cb(cond)
     for l:key in keys(s:holds)
         try
             if (match(s:holds[l:key].cond, a:cond) >= 0)
@@ -55,15 +55,13 @@ function g:call_and_return(func, ret, ...)
     return a:ret
 endfunction
 
-let g:Hold_cb_ref = function('s:hold_cb')
-
-autocmd CursorMoved * silent! call s:hold_cb('c')
-autocmd CursorMovedI * silent! call s:hold_cb('c')
-autocmd BufEnter * silent! call s:hold_cb('w')
-autocmd BufWinEnter * silent! call s:hold_cb('w')
-autocmd WinEnter * silent! call s:hold_cb('w')
-autocmd CmdwinEnter * silent! call s:hold_cb('m')
-autocmd TabEnter * silent! call s:hold_cb('w')
-noremap <expr> <C-G> g:call_and_return(g:Hold_cb_ref, "", 'g')
-inoremap <expr> <C-G> g:call_and_return(g:Hold_cb_ref, "", 'g')
-cnoremap <expr> <C-G> g:call_and_return(g:Hold_cb_ref, "<ESC>", 'g')
+autocmd CursorMoved * silent! call <SID>hold_cb('c')
+autocmd CursorMovedI * silent! call <SID>hold_cb('c')
+autocmd BufEnter * silent! call <SID>hold_cb('w')
+autocmd BufWinEnter * silent! call <SID>hold_cb('w')
+autocmd WinEnter * silent! call <SID>hold_cb('w')
+autocmd CmdwinEnter * silent! call <SID>hold_cb('m')
+autocmd TabEnter * silent! call <SID>hold_cb('w')
+noremap <expr> <C-G> g:call_and_return("<SID>hold_cb", "", 'g')
+inoremap <expr> <C-G> g:call_and_return("<SID>hold_cb", "", 'g')
+cnoremap <expr> <C-G> g:call_and_return("<SID>hold_cb", "<ESC>", 'g')

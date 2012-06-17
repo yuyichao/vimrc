@@ -6,6 +6,7 @@ set guioptions=aegimrLt
 " Font Setting
 set guifont=文泉驿等宽正黑\ Bold\ 14
 
+" GUI
 set ruler
 set hidden
 set number
