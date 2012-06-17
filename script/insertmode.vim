@@ -46,8 +46,8 @@ noremap <C-Z> u
 inoremap <C-Z> <C-O>u
 noremap ú <C-R>
 inoremap ú <C-O><C-R>
-noremap <C-L> zz
-inoremap <C-L> <C-O>zz
+noremap <C-L> zz<C-L>
+inoremap <C-L> <C-O>zz<C-O><C-L>
 noremap ö <C-U>
 inoremap ö <C-O><C-U>
 noremap <C-V> <C-D>
