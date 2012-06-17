@@ -3,7 +3,7 @@
 set list
 set lcs=tab:\ \ ,eol:$
 
-function SetWhiteSpaceHighLight()
+function s:set_white_space_highlight()
     highlight _begin_tabs guibg=#FFFF48
     highlight _tab_error guibg=#FF212A
     highlight _spaces guibg=#D9F2E1
@@ -11,7 +11,7 @@ function SetWhiteSpaceHighLight()
     highlight _newline guibg=#E7FEFF guifg=#CACACA
 endfunction
 
-function SetWhiteSpaceMatch()
+function s:set_white_space_match()
     if (!exists('w:begin_tabs'))
         let w:begin_tabs = matchadd("_begin_tabs", '^\t\+', 100)
     endif
@@ -32,13 +32,11 @@ function SetWhiteSpaceMatch()
     endif
 endfunction
 
-autocmd ColorScheme * call SetWhiteSpaceHighLight()
-"autocmd BufEnter,WinEnter,TabEnter,Syntax * call SetWhiteSpaceMatch()
-autocmd BufEnter * call SetWhiteSpaceMatch()
-autocmd WinEnter * call SetWhiteSpaceMatch()
-autocmd TabEnter * call SetWhiteSpaceMatch()
-autocmd BufWinEnter * call SetWhiteSpaceMatch()
-autocmd Syntax * call SetWhiteSpaceMatch()
-" autocmd BufEnter * call SetWhiteSpaceMatch()
+autocmd ColorScheme * call s:set_white_space_highlight()
+autocmd BufEnter * call s:set_white_space_match()
+autocmd WinEnter * call s:set_white_space_match()
+autocmd TabEnter * call s:set_white_space_match()
+autocmd BufWinEnter * call s:set_white_space_match()
+autocmd Syntax * call s:set_white_space_match()
 
-call SetWhiteSpaceHighLight()
+call s:set_white_space_highlight()
