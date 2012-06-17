@@ -23,6 +23,11 @@ function <SID>i_redirect(key)
     return l:ret
 endfunction
 
+function <SID>toggle_readonly()
+    let &modifiable = !&modifiable
+    return ""
+endfunction
+
 " Edit
 noremap <C-D> <Del>
 noremap! <C-D> <Del>
@@ -58,5 +63,9 @@ inoremap <expr> k <SID>i_redirect("k")
 inoremap <expr> l <SID>i_redirect("l")
 inoremap <expr> / <SID>i_redirect('/')
 inoremap <expr> ? <SID>i_redirect('?')
+noremap <expr> <C-X><C-Q> <SID>toggle_readonly()
+noremap! <expr> <C-X><C-Q> <SID>toggle_readonly()
+noremap <expr> <C-X><Home> <SID>toggle_readonly()
+noremap! <expr> <C-X><Home> <SID>toggle_readonly()
 " TODO
 inoremap <expr> <TAB> "\<C-O>=="
