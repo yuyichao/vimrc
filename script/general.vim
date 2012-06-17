@@ -26,7 +26,7 @@ function g:hold_unregister(name)
     endtry
 endfunction
 
-function g:Get_Holds()
+function g:get_Holds()
     return s:holds
 endfunction
 

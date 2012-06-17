@@ -2,7 +2,7 @@ set im
 set whichwrap=b,s,<,>,h,l,[,],~
 set backspace=indent,eol,start
 
-function I_redirect(key)
+function <SID>i_redirect(key)
     if (&modifiable && !&readonly)
         return a:key
     endif
@@ -52,11 +52,11 @@ noremap ö <C-U>
 inoremap ö <C-O><C-U>
 noremap <C-V> <C-D>
 inoremap <C-V> <C-O><C-D>
-inoremap <expr> h I_redirect("h")
-inoremap <expr> j I_redirect("j")
-inoremap <expr> k I_redirect("k")
-inoremap <expr> l I_redirect("l")
-inoremap <expr> / I_redirect('/')
-inoremap <expr> ? I_redirect('?')
+inoremap <expr> h <SID>i_redirect("h")
+inoremap <expr> j <SID>i_redirect("j")
+inoremap <expr> k <SID>i_redirect("k")
+inoremap <expr> l <SID>i_redirect("l")
+inoremap <expr> / <SID>i_redirect('/')
+inoremap <expr> ? <SID>i_redirect('?')
 " TODO
 inoremap <expr> <TAB> "\<C-O>=="
