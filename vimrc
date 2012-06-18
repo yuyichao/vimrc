@@ -3,6 +3,7 @@ source ~/.vim/script/general.vim
 source ~/.vim/script/insertmode.vim
 
 set clipboard+=unnamed
+set updatetime=4000
 
 filetype plugin indent on
 
