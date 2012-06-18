@@ -12,7 +12,7 @@
 ## TODO
 1. kill ring (<M-Y>)
 2. Start select at EOL (<C-Space>)
-3. Status Line
+3. ~Status Line~
 4. Replace (<M-%>)
 5. Comment Region
 6. Upper/Lower
@@ -23,3 +23,7 @@
 11. Folding
 12. Pause when search reaches end
 13. Smart search
+14. Spell check
+15. Git
+16. Build
+17. Search and move

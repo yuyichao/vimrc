@@ -15,6 +15,10 @@ set number
 set mouse=a
 set lazyredraw
 set winaltkeys=no
+set laststatus=2
+" since in insert mode, the -- INSERT -- make it impossible to see other
+" messages
+set noshowmode
 
 set hlsearch
 set incsearch
