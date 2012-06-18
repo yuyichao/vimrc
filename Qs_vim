@@ -1,0 +1,30 @@
+community/clewn 1.15-5
+    gdb support for vim
+extra/gvim 7.3.547-1
+    Vi Improved, a highly configurable, improved version of the vi text editor (with advanced features, such as a GUI)
+community/vim-a 2.18-6 (vim-plugins)
+    alternate files in vim quickly (.c -> .h etc)
+local/vim-auctex 2.2.10-1
+    Macros for latex.
+extra/vim-buftabs 0.18-1 (vim-plugins)
+    Minimalistic buffer tabs saving screen space
+local/vim-c 5.19-1 (vim-plugins)
+    C/C++ IDE --  Write and run programs. Insert statements, idioms, comments etc.
+local/vim-conque 2.3-1 (vim-plugins)
+    Conque is a Vim plugin allowing users to execute and interact with programs, typically a shell such as bash, inside a buffer window.
+community/vim-doxygentoolkit 0.2.13-2 (vim-plugins)
+    This script simplify doxygen documentation in C/C++
+local/vim-markdown 9-3
+    A Vim syntax file for the Markdown formatting syntax.
+local/vim-pkgbuild 0.1-4
+    VIM plugin to help PKGBUILD creation
+local/vim-ragtag 2.0-1 (vim-plugins)
+    A set of mappings for HTML, XML, PHP, ASP, eRuby, JSP, and more (formerly allml.)
+community/vim-rails 4.4-1
+    A Vim plugin for enhanced Ruby on Rails application development
+extra/vim-runtime 7.3.547-1
+    Runtime for vim and gvim
+extra/vim-spell-en 20100829-2
+    Language files for Vim spell checking
+community/vim-taglist 45-5 (vim-plugins)
+    A source code browser plugin for vim
