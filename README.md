@@ -29,6 +29,6 @@
 17. ~~Move with search~~ (Already supported)
 18. Better `C-S` behavior
 19. Better `C-K` behavior at EOF
-20. Recover cursor position for `TAB` indent
+20. ~~Recover cursor position for `TAB` indent~~
 21. Use `TAB` to indent, autocomplete, insert spaces~
 22. ~~`C-K` and `C-J` (Kill Line) doesn't support multi-byte charactor now~~

@@ -28,6 +28,19 @@ function <SID>toggle_readonly()
     return ""
 endfunction
 
+function <SID>insert_tab_indent()
+    let l:pos = col('.')
+    let l:line = getline('.')
+    let l:after_l = g:utf8_strlen(strpart(l:line, l:pos - 1))
+    let l:before_text = strpart(l:line, 0, l:pos - 1)
+    let l:before_non_blk = substitute(l:before_text, '\s', '', 'g')
+    let l:suffix = ""
+    if (strlen(l:before_non_blk) > 0)
+        let l:suffix = "\<End>" . repeat("\<Left>", l:after_l)
+    endif
+    return "\<C-O>==" . l:suffix
+endfunction
+
 " Edit
 noremap <C-D> <Del>
 noremap! <C-D> <Del>
@@ -67,5 +80,4 @@ noremap <expr> <C-X><C-Q> <SID>toggle_readonly()
 noremap! <expr> <C-X><C-Q> <SID>toggle_readonly()
 noremap <expr> <C-X><Home> <SID>toggle_readonly()
 noremap! <expr> <C-X><Home> <SID>toggle_readonly()
-" TODO
-inoremap <expr> <TAB> "\<C-O>=="
+inoremap <expr> <TAB> <SID>insert_tab_indent()
