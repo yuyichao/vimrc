@@ -12,7 +12,7 @@
 ## TODO
 1. kill ring (`M-Y`)
 2. Start select at EOL (`C-Space`)
-3. ~~Status Line~~
+3. ~~Show status line~~
 4. Replace (`M-%`)
 5. Comment Region
 6. Upper/Lower
@@ -33,3 +33,8 @@
 21. Use `TAB` to indent, autocomplete, insert spaces~
 22. ~~`C-K` and `C-J` (Kill Line) doesn't support multi-byte charactor now~~
 23. Hide/Close Buffer/Window
+24. CTags/CScope
+25. Remove menubar when they are all mapped
+26. Conque Term
+27. Tex
+28. Better Command Line Support (keymap and color theme)
