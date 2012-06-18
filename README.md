@@ -26,4 +26,5 @@
 14. Spell check
 15. Git
 16. Build
-17. Move with search
+17. ~~Move with search~~ (Already supported)
+18. Better `C-S` behavior
