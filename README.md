@@ -28,3 +28,6 @@
 16. Build
 17. ~~Move with search~~ (Already supported)
 18. Better `C-S` behavior
+19. Better `C-K` behavior at EOF
+20. Recover cursor position for `TAB` indent
+21. Use `TAB` to indent, autocomplete, insert spaces~
