@@ -32,3 +32,4 @@
 20. ~~Recover cursor position for `TAB` indent~~
 21. Use `TAB` to indent, autocomplete, insert spaces~
 22. ~~`C-K` and `C-J` (Kill Line) doesn't support multi-byte charactor now~~
+23. Hide/Close Buffer/Window
