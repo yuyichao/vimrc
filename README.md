@@ -38,3 +38,4 @@
 26. Conque Term
 27. Tex
 28. Better Command Line Support (keymap and color theme)
+29. *global key event?*
