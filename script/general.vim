@@ -65,3 +65,12 @@ autocmd TabEnter * silent! call <SID>hold_cb('w')
 noremap <expr> <C-G> g:call_and_return("<SID>hold_cb", "", 'g')
 inoremap <expr> <C-G> g:call_and_return("<SID>hold_cb", "", 'g')
 cnoremap <expr> <C-G> g:call_and_return("<SID>hold_cb", "<ESC>", 'g')
+
+function s:create_on_save()
+    if (expand("<afile>")!~#'^\w\+:/' && !isdirectory(expand("%:h")))
+        call mkdir(expand('%:h'), "p")
+        redraw!
+    endif
+endfunction
+
+autocmd BufWritePre * call s:create_on_save()

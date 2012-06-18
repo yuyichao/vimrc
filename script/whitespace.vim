@@ -1,6 +1,7 @@
 " My "White Space Mode"
 
 set lcs=tab:\ \ ,eol:$
+set list
 
 let s:blacklist = ['conque_term']
 let s:whitespace_match = {'begin_tabs': ['_begin_tabs', '^\t\+', 100],
@@ -24,7 +25,6 @@ function s:set_white_space_match()
         return
     endif
     if (!exists('w:white_space_matches'))
-        setlocal list
         let w:white_space_matches = {}
         for l:key in keys(s:whitespace_match)
             let w:white_space_matches[l:key] = call('matchadd',
