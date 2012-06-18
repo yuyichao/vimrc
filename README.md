@@ -10,13 +10,13 @@
 ### Search
 
 ## TODO
-1. kill ring (<M-Y>)
-2. Start select at EOL (<C-Space>)
-3. ~Status Line~
-4. Replace (<M-%>)
+1. kill ring (`M-Y`)
+2. Start select at EOL (`C-Space`)
+3. ~~Status Line~~
+4. Replace (`M-%`)
 5. Comment Region
 6. Upper/Lower
-7. Normal mode (noremap to <C-L>?)
+7. Normal mode (noremap to `C-L`?)
 8. Manipulate kill ring (toggle states etc)
 9. Better Highlight (gtk-doc? Doxygen?)
 10. Auto-Completion
@@ -26,4 +26,4 @@
 14. Spell check
 15. Git
 16. Build
-17. Search and move
+17. Move with search
