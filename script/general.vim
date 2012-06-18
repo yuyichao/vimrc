@@ -1,5 +1,9 @@
 let s:holds = {}
 
+function g:utf8_strlen(str)
+    return strlen(substitute(a:str, '.', '.', 'g'))
+endfunction
+
 function g:get_cmd_to_nor_str()
     if (&im)
         return "\<ESC>\<ESC>\<C-O>"

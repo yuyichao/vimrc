@@ -113,6 +113,7 @@ function <SID>insert_paste()
 endfunction
 
 function <SID>insert_kill_line(toend)
+    " Set paste if there is some problems~~
     let l:tryadd = a:toend ? 1 : -1
     let l:pos = col('.')
     let l:line = getline('.')
@@ -125,13 +126,12 @@ function <SID>insert_kill_line(toend)
         let s:moving_cursor = 1
         return "\<BS>"
     else
-        " Not at EOL; kill until end of line
         if (a:toend)
             let l:cut_text = strpart(l:line, l:pos - 1)
-            let l:operation = repeat("\<Del>", strlen(l:line) - l:pos + 1)
+            let l:operation = repeat("\<Del>", g:utf8_strlen(l:cut_text))
         else
             let l:cut_text = strpart(l:line, 0, l:pos - 1)
-            let l:operation = repeat("\<BS>", l:pos - 1)
+            let l:operation = repeat("\<BS>", g:utf8_strlen(l:cut_text))
         endif
         call s:push_kill_ring(l:cut_text, l:tryadd)
         let s:moving_cursor = 1
